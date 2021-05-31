@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shkolar_mobile_app/lesson_screen.dart';
-import 'package:shkolar_mobile_app/models/lesson.dart';
+import 'package:shkolar_mobile_app/api/data_classes.dart';
+import 'package:shkolar_mobile_app/pages/lesson_screen.dart';
 
 class LessonItem extends StatelessWidget {
   final Lesson _lessonData;
@@ -13,15 +13,31 @@ class LessonItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        _lessonData.title,
-        style: Theme.of(context).textTheme.headline6,
-      ),
-      subtitle: Text('${_lessonData.teacher}\nАуд. ${_lessonData.auditory}',
-          style: Theme.of(context).textTheme.bodyText2),
-      isThreeLine: true,
-      onTap: () => viewLesson(context, _lessonData),
-    );
+    if (_lessonData.homework != null) {
+      return ListTile(
+        trailing: Icon(Icons.bookmark_outline),
+        title: Text(
+          _lessonData.subject,
+          style: Theme.of(context).textTheme.headline6,
+        ),
+        subtitle: Text(
+            '${_lessonData.teacher}\nАуд. ${_lessonData.auditory != null ? _lessonData.auditory : 'не указана.'}',
+            style: Theme.of(context).textTheme.bodyText2),
+        isThreeLine: true,
+        onTap: () => viewLesson(context, _lessonData),
+      );
+    } else {
+      return ListTile(
+        title: Text(
+          _lessonData.subject,
+          style: Theme.of(context).textTheme.headline6,
+        ),
+        subtitle: Text(
+            '${_lessonData.teacher}\nАуд. ${_lessonData.auditory != null ? _lessonData.auditory : 'не указана.'}',
+            style: Theme.of(context).textTheme.bodyText2),
+        isThreeLine: true,
+        onTap: () => viewLesson(context, _lessonData),
+      );
+    }
   }
 }

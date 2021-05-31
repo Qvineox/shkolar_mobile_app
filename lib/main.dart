@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shkolar_mobile_app/lesson_screen.dart';
+import 'package:shkolar_mobile_app/pages/lesson_screen.dart';
 
 import 'lessons_screen.dart';
 
@@ -15,11 +15,12 @@ class MyApp extends StatelessWidget {
           accentColor: Color.fromRGBO(255, 230, 178, 1),
           fontFamily: 'IBMPlex',
           textTheme: ThemeData.light().textTheme.copyWith(
-              bodyText1: TextStyle(color: Color.fromRGBO(51, 51, 51, 1)),
+              bodyText1: TextStyle(
+                  fontSize: 20, color: Color.fromRGBO(120, 120, 120, 1)),
               bodyText2: TextStyle(
                   fontSize: 13, color: Color.fromRGBO(120, 120, 120, 1)),
               headline6: TextStyle(fontSize: 24, fontWeight: FontWeight.w400))),
-      home: LessonsScreen(),
+      home: WeekLessons(),
       routes: {'/lesson': (context) => LessonScreen()},
     );
   }
