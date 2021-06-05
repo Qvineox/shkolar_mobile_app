@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shkolar_mobile_app/services/api_manager.dart';
 import 'package:grouped_list/grouped_list.dart';
-import 'package:intl/intl.dart';
 
-import 'api/api_provider.dart';
-import 'api/data_classes.dart';
-import 'particles/lesson_item.dart';
+import '../api/api_provider.dart';
+import '../api/data_classes.dart';
+import '../particles/lesson_item.dart';
 
 import 'package:http/http.dart' as http;
 

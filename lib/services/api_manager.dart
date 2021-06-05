@@ -22,4 +22,12 @@ class APIManager {
 
     return _lesson;
   }
+
+  Future<Lesson> fetchToken(int id) async {
+    final response = await _provider.get("lesson/$id");
+    Lesson _lesson = Lesson.fromJson(response);
+    print(_lesson);
+
+    return _lesson;
+  }
 }

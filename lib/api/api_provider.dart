@@ -6,14 +6,14 @@ import 'dart:async';
 import 'api_exceptions.dart';
 
 class ApiProvider {
-  final String _baseUrl = "https://006f73477916.ngrok.io/api/";
+  final String baseUrl = "https://22d689f68cf2.ngrok.io/";
   final String _token = "1d5573054121df0ee3a6bb30b8c37703cb08cc19";
 
   Future<dynamic> get(String url) async {
     var responseJson;
     try {
-      final response = await http.get(Uri.parse(_baseUrl + url), headers:
-      {
+      final response =
+          await http.get(Uri.parse(baseUrl + 'api/' + url), headers: {
         HttpHeaders.authorizationHeader: 'Token $_token',
       });
       responseJson = _response(response);
